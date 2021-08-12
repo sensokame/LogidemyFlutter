@@ -1,0 +1,38 @@
+{
+  "fallaciesText": "Logical Fallacies",
+  "@fallaciesText": {
+    "description": "Fallacies text"
+  },
+  "aboutText" : "About",
+  "@aboutText" : {
+    "description": "About Text"
+  },
+  "settingsText" : "Settings",
+  "@settingsText" : {
+    "description": "Settings Text"
+  },
+  "homeText" : "Home",
+  "@homeText" : {
+    "description": "Home Text"
+  },
+  "themeText" : "Theme",
+  "@themeText" : {
+    "description": "Theme Text"
+  },
+  "languageText": "Language",
+  "@languageText" : {
+    "description" : "Language Text"
+  },
+  "appNameText": "Logidemy",
+  "@appNameText": {
+    "description": "App name, will appear when the home page is selected"
+  },
+  "lightThemeText": "Light Theme",
+  "@lightThemeText": {
+    "description": "Light theme text"
+  },
+  "darkThemeText": "dark Theme",
+  "@darkThemeText": {
+    "description": "dark theme text"
+  }
+}
