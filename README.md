@@ -4,13 +4,18 @@ Logic Academy for Logical thinking app starting with logical fallacies.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+Bare Flutter project, to be cloned and opened with Android Studio (recommended)
 
-A few resources to get you started if this is your first Flutter project:
+## Road Map
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+- [ ] finish Prototype App with bare design
+- [ ] improve design (look and feel) of the prototype (UI/UX)
+- [ ] (different project) prepare application backend
+- [ ] create API controller to communicate with backend
+- [ ] release first prototype (v1.0)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Goals
+
+this is an educational project, the goal is to master key learnings, mainly, Flutter, Mobile development, API development, database management, etc.
+still a work in progress
+feedback and ideas are welcomed.
