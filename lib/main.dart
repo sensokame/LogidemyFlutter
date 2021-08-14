@@ -20,7 +20,8 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State {
-  static const String ThemeKey = "themeValue";
+  static const String themeKey = "themeValue";
+  static const String languageKey = "languageValue";
   @override
   void initState() {
     super.initState();
@@ -31,21 +32,30 @@ class _MyAppState extends State {
         saveTheme();
       });
     });
+    currentLanguage.addListener(() {
+      setState((){
+        saveLanguage();
+      });
+    });
+  }
+  void saveLanguage() async{
+    final prefs = await SharedPreferences.getInstance();
+    prefs.setString(languageKey, currentLanguage.currentLanguage.languageCode);
   }
   void saveTheme() async{
     final prefs = await SharedPreferences.getInstance();
-    prefs.setString(ThemeKey, currentTheme.currentTheme.toString());
+    prefs.setString(themeKey, currentTheme.currentTheme.toString());
   }
   void loadApp() async{
     final prefs = await SharedPreferences.getInstance();
-    var themeValue = prefs.getString(ThemeKey);
+    var themeValue = prefs.getString(themeKey);
     ThemeMode? mode = ThemeMode.light;
     if (themeValue == ThemeMode.dark.toString()){
       mode = ThemeMode.dark;
     }
-    setState((){
-      currentTheme.currentTheme = mode;
-    });
+    currentTheme.toggleTheme(mode);
+    var languageValue = prefs.getString(languageKey);
+    currentLanguage.toggleLanguage(languageValue);
 
   }
   @override
@@ -57,6 +67,7 @@ class _MyAppState extends State {
       themeMode: currentTheme.currentTheme, //5
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
+      locale: currentLanguage.currentLanguage,
       home: AppPage(fallacies: getFallacies()),
     );
   }

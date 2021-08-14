@@ -18,7 +18,7 @@ class _ThemePageState extends State<ThemesPage> {
     setState(() {
       this.theme = theme;
     });
-    CustomTheme().toggleTheme(theme);
+    currentTheme.toggleTheme(theme);
   }
   @override
   Widget build(BuildContext context) {

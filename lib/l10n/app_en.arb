@@ -34,5 +34,9 @@
   "darkThemeText": "dark Theme",
   "@darkThemeText": {
     "description": "dark theme text"
+  },
+  "selectLanguageText": "Select Language",
+  "@selectLanguageText": {
+    "description": "select language text, to be used in settings"
   }
 }
