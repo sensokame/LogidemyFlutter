@@ -33,6 +33,7 @@ class _AppDrawerState extends State<AppDrawer> {
           MenuListTile(
               tileText : AppLocalizations.of(context)!.fallaciesText,
             children: FallaciesMenuController.getFallacyCategories(widget.fallacies, context),
+            onTap: FallaciesMenuController.getLogicalFallaciesContent(context)
           ),
           const Divider(),
           // about

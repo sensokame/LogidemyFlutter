@@ -41,7 +41,7 @@ class FallaciesControllers {
         "test",
         "Test Fallacy",
         "Test Category",
-        "Test picture url",
+        "https://external-preview.redd.it/Mu97csuMHib2P34ma_RyJJLKPBdXEnZJZ2wVBuWUaYI.png?auto=webp&s=26e1a352216a6ade12aa0e37e514d1b545f03058",
         "Test Description, pretend that this is a long ass paragraph",
         "Test Example, pretend that this is an example",
         [

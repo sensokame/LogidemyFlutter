@@ -8,7 +8,7 @@ Bare Flutter project, to be cloned and opened with Android Studio (recommended)
 
 ## Road Map
 
-- [ ] finish Prototype App with bare design
+- [x] finish Prototype App with bare design
 - [ ] improve design (look and feel) of the prototype (UI/UX)
 - [ ] (different project) prepare application backend
 - [ ] create API controller to communicate with backend

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:logidemy/UI/Settings/settings_page.dart';
 
-class MenuListTile extends StatelessWidget{
+class MenuListTile extends StatefulWidget{
   const MenuListTile({
     Key? key,
     required this.tileText,
@@ -10,26 +11,38 @@ class MenuListTile extends StatelessWidget{
   final String tileText;
   final List<Widget>? children;
   final void Function()? onTap;
+
+  @override
+  _MenuListTileState createState() => _MenuListTileState();
+}
+class _MenuListTileState extends State<MenuListTile>{
+  bool isOpen = false;
   @override
   Widget build(BuildContext context) {
-    if (children == null || children!.isEmpty){
+    if (widget.children == null || widget.children!.isEmpty){
       return ListTile(
-        title: Text(
-            tileText
-        ),
-        onTap: onTap
+          title: Text(
+              widget.tileText
+          ),
+          onTap: widget.onTap
       );
     }
     else{
       return ExpansionTile(
-        leading: IconButton(
-          icon: const Icon(Icons.info),
-          onPressed: onTap,
+        title:
+        ListTile(
+          contentPadding: const EdgeInsets.symmetric(horizontal: 0.0),
+          title: Text(widget.tileText),
+          onTap: widget.onTap,
         ),
-          title: Text(
-              tileText
-          ),
-          children: children!.toList()
+        trailing: isOpen ? const Icon(Icons.keyboard_arrow_down) : const Icon(Icons.chevron_right),
+        children: widget.children!.toList(),
+        initiallyExpanded: false,
+        onExpansionChanged: (isOpen) {
+          this.isOpen = isOpen;
+          setState(() {
+          });
+        },
       );
     }
   }
