@@ -11,7 +11,7 @@ Bare Flutter project, to be cloned and opened with Android Studio (recommended)
 - [x] finish Prototype App with bare design
 - [ ] improve design (look and feel) of the prototype (UI/UX)
 - [x] (different project) prepare application backend (first version available)
-- [ ] create API controller to communicate with backend
+- [x] create API controller to communicate with backend
 - [ ] release first prototype (v1.0)
 
 ## Goals
