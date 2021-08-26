@@ -1,8 +1,14 @@
  class FallacyKey{
-  const FallacyKey(
-      this.key,
-      this.name
-      );
+  FallacyKey({
+    required this.key,
+    required this.name
+  });
   final String key;
   final String name;
+  factory FallacyKey.fromJson(Map<String, dynamic> json){
+    return FallacyKey(
+        key: json['key'],
+        name: json['name']
+    );
+  }
  }

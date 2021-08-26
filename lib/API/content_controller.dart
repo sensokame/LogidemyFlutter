@@ -1,13 +1,17 @@
-import 'package:logidemy/Model/content.dart';
+import 'dart:convert';
 
-class ContentController{
-  static Content getContent(String key){
-    // TODO implement API call to get content from backend
-    // for now return static content
-    return const Content(
-        "test_content",
-        "Test Content",
-        "https://external-preview.redd.it/Mu97csuMHib2P34ma_RyJJLKPBdXEnZJZ2wVBuWUaYI.png?auto=webp&s=26e1a352216a6ade12aa0e37e514d1b545f03058",
-        "Let's make this a long ass text, let's give it some chance to reach two lines. \n let's do a line return and write some more shit, oh well, this is could be good enough for now.");
+import 'package:logidemy/Model/content.dart';
+import 'package:logidemy/Values/constants.dart';
+import 'package:http/http.dart' as http;
+
+class ContentController {
+  static Future<Content> getContent(String key) async {
+    final response = await http.get(
+        Uri.parse(backendUrl + contentBackendUrl + key));
+    if (response.statusCode == 200 || response.statusCode == 304) {
+      return Content.fromJson(jsonDecode(response.body));
+    } else {
+      throw Exception('Failed to get Fallacy (may not exist)');
+    }
   }
 }

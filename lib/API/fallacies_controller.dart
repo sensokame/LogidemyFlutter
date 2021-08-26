@@ -1,52 +1,34 @@
+import 'dart:convert';
 import 'package:logidemy/Model/fallacy.dart';
 import 'package:logidemy/Model/fallacy_category.dart';
-import 'package:logidemy/Model/fallacy_key.dart';
+import 'package:logidemy/Values/constants.dart';
+import 'package:http/http.dart' as http;
 
 class FallaciesControllers {
   // used at the startup of the app to get the fallacies from the backend
-  static getAllCategories() {
-    // TODO implement backend API calls
-    // for now return static mock list
-    return [
-      const FallacyCategory(
-          "logical one",
-          [
-            FallacyKey("one", "one"),
-            FallacyKey("second", "second"),
-            FallacyKey("third", "third")
-          ]
-      ),
-      const FallacyCategory(
-          "logical two",
-          [
-            FallacyKey("fourth", "fourth"),
-            FallacyKey("fifth", "fifth"),
-            FallacyKey("sixth", "sixth")
-          ]
-      ),
-      const FallacyCategory(
-          "logical three",
-          [
-            FallacyKey("seventh", "seventh"),
-            FallacyKey("eighth", "eighth"),
-            FallacyKey("ninth", "ninth")
-          ]
-      )
-    ];
+  static Future<List<FallacyCategory>> getAllCategories() async{
+    final response = await http.get(Uri.parse(backendUrl + fallaciesBackendUrl + fallaciesCategoriesBackendUrl));
+    if (response.statusCode == 200 || response.statusCode == 304) {
+      // If the server did return a 200 OK response,
+      // or 304 cached response
+      // then parse the JSON.
+      List<FallacyCategory> res = [];
+      for (var f in jsonDecode(response.body)){
+        res.add(FallacyCategory.fromJson(f));
+      }
+      return res;
+    } else {
+      // If the server did not return a 200 OK response,
+      // then throw an exception.
+      throw Exception('Failed to load categories');
+    }
   }
-  static getFallacy(String key){
-    // TODO implement API calls to get fallacy by key
-    // for now return static fallacy
-    return const Fallacy(
-        "test",
-        "Test Fallacy",
-        "Test Category",
-        "https://external-preview.redd.it/Mu97csuMHib2P34ma_RyJJLKPBdXEnZJZ2wVBuWUaYI.png?auto=webp&s=26e1a352216a6ade12aa0e37e514d1b545f03058",
-        "Test Description, pretend that this is a long ass paragraph",
-        "Test Example, pretend that this is an example",
-        [
-          "sign test 1",
-          "test sign 2"
-        ]);
+  static Future<Fallacy> getFallacy(String key) async{
+    final response = await http.get(Uri.parse(backendUrl + fallaciesBackendUrl + key));
+    if (response.statusCode == 200 || response.statusCode == 304){
+      return Fallacy.fromJson(jsonDecode(response.body));
+    } else{
+      throw Exception('Failed to get Fallacy (may not exist)');
+    }
   }
 }
