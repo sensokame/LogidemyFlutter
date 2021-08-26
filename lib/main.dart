@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:logidemy/API/fallacies_controller.dart';
-import 'package:logidemy/Model/fallacy_category.dart';
 import 'package:logidemy/theme/config.dart';
 import 'package:logidemy/theme/custom_themes.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -68,12 +66,7 @@ class _MyAppState extends State {
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       locale: currentLanguage.currentLanguage,
-      home: AppPage(fallacies: getFallacies()),
+      home: const AppPage(),
     );
-  }
-
-  List<FallacyCategory> getFallacies() {
-    // TODO make api call to the list of fallacies
-    return FallaciesControllers.getAllCategories();
   }
 }

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:logidemy/API/fallacies_controller.dart';
 import 'package:logidemy/Model/fallacy_category.dart';
 import 'package:logidemy/Model/fallacy_key.dart';
 import 'package:logidemy/UI/content_page.dart';
@@ -9,23 +8,20 @@ import 'package:logidemy/Widgets/General/menu_list_tile.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'app_state_controller.dart';
-import 'content_controller.dart';
 
 class FallaciesMenuController{
   static void Function()? getLogicalFallaciesContent(BuildContext context){
-    var content = ContentController.getContent(logicalFallaciesKey);
     return () => AppStateController.setAppContent(
-        ContentPage(
-            title: content.title,
-          content: content.text,
-          pictureUrl:  content.picture
+        const ContentPage(
+            contentKey: logicalFallaciesKey,
         ),
       context,
       AppLocalizations.of(context)!.fallaciesText,
       true
     );
   }
-  static List<Widget> getFallacyCategories(List<FallacyCategory> fallacies, BuildContext context) {
+  static List<Widget> getFallacyCategories(List<FallacyCategory>? fallacies, BuildContext context) {
+    fallacies = fallacies ?? [];
     var children = <Widget>[];
     for (var fallacy in fallacies) {
       children.add(createFallacyCategory(fallacy, context));
@@ -34,15 +30,12 @@ class FallaciesMenuController{
   }
 
   static Widget createFallacyCategory(FallacyCategory fallacy, BuildContext context) {
-    var fallacyContent = ContentController.getContent(fallacy.category);
     return MenuListTile(
         tileText: fallacy.category,
         children: getFallaciesFromCategory(fallacy.fallacies, context),
         onTap: () => AppStateController.setAppContent(
           ContentPage(
-            title: fallacyContent.title,
-            pictureUrl: fallacyContent.picture,
-            content: fallacyContent.text
+            contentKey: fallacy.category,
           ),
           context,
           AppLocalizations.of(context)!.fallaciesText,
@@ -57,7 +50,7 @@ class FallaciesMenuController{
         tileText: f.name,
         onTap: () => AppStateController.setAppContent(
             FallacyPage(
-              fallacy: FallaciesControllers.getFallacy(f.key),
+              fallacyKey: f.key,
             ),
             context,
             AppLocalizations.of(context)!.fallaciesText,

@@ -1,7 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:logidemy/API/app_state_controller.dart';
-import 'package:logidemy/Model/fallacy_category.dart';
 import 'package:logidemy/Widgets/General/app_drawer.dart';
 
 import 'home_page.dart';
@@ -9,9 +8,7 @@ import 'home_page.dart';
 class AppPage extends StatefulWidget{
   const AppPage({
     Key? key,
-    required this.fallacies
   }) : super (key : key);
-  final List<FallacyCategory> fallacies;
   @override
   AppState createState() => AppState();
 }
@@ -33,7 +30,7 @@ class AppState extends State<AppPage>{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: AppDrawer(fallacies: widget.fallacies),
+      drawer: const AppDrawer(),
       body: content,
       appBar: AppBar(
         leading: BackButton(
