@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 import 'package:logidemy/Model/fallacy.dart';
 import 'package:logidemy/Model/fallacy_category.dart';
 import 'package:logidemy/Values/constants.dart';
@@ -7,7 +8,12 @@ import 'package:http/http.dart' as http;
 class FallaciesControllers {
   // used at the startup of the app to get the fallacies from the backend
   static Future<List<FallacyCategory>> getAllCategories() async{
-    final response = await http.get(Uri.parse(backendUrl + fallaciesBackendUrl + fallaciesCategoriesBackendUrl));
+    final response = await http.get(
+        Uri.parse(
+            backendUrl +
+                fallaciesBackendUrl +
+                fallaciesCategoriesBackendUrl
+        ));
     if (response.statusCode == 200 || response.statusCode == 304) {
       // If the server did return a 200 OK response,
       // or 304 cached response

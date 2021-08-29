@@ -9,7 +9,7 @@ class Fallacy{
   final String description;
   final String example;
   final String readMore;
-  final Iterable<String> signs;
+  final List<dynamic> signs;
 
   Fallacy({
     required this.key,
@@ -31,7 +31,7 @@ class Fallacy{
         description: json['description'],
         example: json['example'],
         readMore: json['read_more'],
-        signs: jsonDecode(json['signs'])
+        signs: json['signs']
     );
   }
 }

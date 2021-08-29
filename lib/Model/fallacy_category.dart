@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:logidemy/Model/fallacy_key.dart';
 
@@ -13,7 +14,7 @@ class FallacyCategory{
 
   factory FallacyCategory.fromJson(Map<String, dynamic> json){
     List<FallacyKey> list = [];
-    for (var f in jsonDecode(json['fallacyKey'])){
+    for (var f in json['fallacyKey']){
       list.add(FallacyKey.fromJson(f));
     }
     return FallacyCategory(
