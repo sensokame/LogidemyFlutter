@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 class RoundedPictureWidget extends StatefulWidget {
@@ -13,9 +15,22 @@ class RoundedPictureWidget extends StatefulWidget {
 class _RoundedPictureWidgetState extends State<RoundedPictureWidget> {
   @override
   Widget build(BuildContext context) {
-    return CircleAvatar(
-      key: UniqueKey(),
-      backgroundImage: NetworkImage(widget.picture),
-    );
+    var screen = MediaQuery.of(context).size;
+    var screenArea = min(screen.width, screen.height);
+    // remove 5% on either side
+    var radius = (screenArea - (screenArea * 10 / 100)) / 2;
+    return
+      Container(
+        decoration: const BoxDecoration(
+          color: Colors.white,
+          shape: BoxShape.circle,
+          boxShadow: [BoxShadow(blurRadius: 10, color: Colors.black, spreadRadius: 5)],
+        ),
+        child: CircleAvatar(
+          key: UniqueKey(),
+          backgroundImage: NetworkImage(widget.picture),
+          radius: radius
+        )
+      );
   }
 }

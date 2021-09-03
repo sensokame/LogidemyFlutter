@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:developer';
 import 'package:logidemy/Model/fallacy.dart';
 import 'package:logidemy/Model/fallacy_category.dart';
 import 'package:logidemy/Values/constants.dart';
