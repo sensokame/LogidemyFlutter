@@ -46,6 +46,7 @@ dev_dependencies:
   stack: ^0.2.1
   tuple: ^2.0.0
   auto_size_text: ^3.0.0-nullsafety.0
+  google_fonts: ^2.1.0
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is

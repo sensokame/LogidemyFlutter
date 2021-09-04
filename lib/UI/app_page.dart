@@ -29,9 +29,16 @@ class AppState extends State<AppPage>{
   }
   @override
   Widget build(BuildContext context) {
+    // keep 10% off the top and bot and 5 % of left and right
+    var screen = MediaQuery.of(context).size;
+    var leftRight = screen.width * 2.5 / 100;
+    var topBot = screen.height * 5 / 100;
     return Scaffold(
       drawer: const AppDrawer(),
-      body: content,
+      body: Container(
+        padding: EdgeInsets.fromLTRB(leftRight, topBot, leftRight, topBot),
+        child: content
+      ),
       appBar: AppBar(
         leading: BackButton(
           onPressed: () => AppStateController.goBack()

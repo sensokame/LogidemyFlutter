@@ -48,7 +48,7 @@ class _ThemeCardState extends State<ThemeCard> with TickerProviderStateMixin{
     var screen = MediaQuery.of(context).size;
     var screenArea = min(screen.width, screen.height);
     // remove 5% on either side
-    var are = (screenArea - (screenArea * 10 / 100)) / 2;
+    var are = (screenArea - (screenArea * 15 / 100)) / 2;
     return Container(
       child: ClipRect(
         clipBehavior: Clip.hardEdge,
@@ -72,7 +72,7 @@ class _ThemeCardState extends State<ThemeCard> with TickerProviderStateMixin{
         boxShadow: [
           BoxShadow(
             color: Theme.of(context).colorScheme.onSurface,
-            blurRadius: 20.0
+            blurRadius: 10.0
           )
         ]
       ),

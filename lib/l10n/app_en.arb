@@ -38,5 +38,9 @@
   "selectLanguageText": "Select Language",
   "@selectLanguageText": {
     "description": "select language text, to be used in settings"
+  },
+  "selectThemeText": "Select Theme",
+  "@selectThemeText": {
+    "description": "select Theme text, to be used in settings"
   }
 }
