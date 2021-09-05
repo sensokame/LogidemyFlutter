@@ -14,22 +14,23 @@ class FallacyPage extends StatefulWidget {
   @override
   _FallacyPageState createState() => _FallacyPageState();
 }
-class _FallacyPageState extends State<FallacyPage>{
+
+class _FallacyPageState extends State<FallacyPage> {
   late Future<Fallacy> fallacy;
   @override
-  void initState(){
+  void initState() {
     super.initState();
     fallacy = FallaciesControllers.getFallacy(widget.fallacyKey);
   }
+
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<Fallacy>(
       future: fallacy,
-      builder: (context, snapshot){
-        if (snapshot.hasData){
+      builder: (context, snapshot) {
+        if (snapshot.hasData) {
           return getFallacyPage(snapshot.data);
-        }
-        else if (snapshot.hasError){
+        } else if (snapshot.hasError) {
           return Text('${snapshot.error}');
         }
         return const CircularProgressIndicator();

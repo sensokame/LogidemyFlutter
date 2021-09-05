@@ -17,8 +17,8 @@ class _RoundedPictureWidgetState extends State<RoundedPictureWidget> {
   Widget build(BuildContext context) {
     var screen = MediaQuery.of(context).size;
     var screenArea = min(screen.width, screen.height);
-    // remove 5% on either side
-    var radius = (screenArea - (screenArea * 10 / 100)) / 2;
+    // remove 15% on either side
+    var radius = (screenArea - (screenArea * 30 / 100)) / 2;
     return
       Container(
         decoration: const BoxDecoration(

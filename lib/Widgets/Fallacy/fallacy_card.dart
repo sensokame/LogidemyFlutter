@@ -12,25 +12,19 @@ class FallacyCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return
-    Container(
-      child: Card(
-          child: IntrinsicHeight(
-            child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: <Widget>[
-              // Picture
-              RoundedPictureWidget(picture: fallacy!.picture),
-              // Title
-              FallacyTitle(titleText: fallacy!.name),
-              // description
-              FallacyDescription(descriptionText: fallacy!.description),
-              // example
-              FallacyExample(exampleText: fallacy!.example)
-            ],
-          ),
-        ),
-      )
-    );
+    return SingleChildScrollView(
+        child: Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: <Widget>[
+        // Picture
+        RoundedPictureWidget(picture: fallacy!.picture),
+        // Title
+        FallacyTitle(titleText: fallacy!.name),
+        // description
+        FallacyDescription(descriptionText: fallacy!.description),
+        // example
+        FallacyExample(exampleText: fallacy!.example)
+      ],
+    ));
   }
 }

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:logidemy/UI/Settings/settings_page.dart';
 
 class MenuListTile extends StatefulWidget{
   const MenuListTile({

@@ -16,9 +16,9 @@ class FallacyTitle extends StatelessWidget {
       style: const TextStyle(
         fontWeight: FontWeight.bold,
         fontStyle: FontStyle.italic,
-        fontSize: 40
+        fontSize: 35
       ),
-      maxFontSize: 40,
+      maxFontSize: 35,
       maxLines: 1,
     );
   }

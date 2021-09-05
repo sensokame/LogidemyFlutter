@@ -9,6 +9,8 @@ class SettingsPage extends StatelessWidget{
   const SettingsPage({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
+    var botPad = size.height *2.5/100;
     return
        Column(
         children: [
@@ -17,6 +19,9 @@ class SettingsPage extends StatelessWidget{
               icon: Icons.language,
               onTap: () => {AppStateController.setAppContent(const LanguagePage(), context, AppLocalizations.of(context)!.languageText, false)}
               ),
+          Padding(
+            padding: EdgeInsets.fromLTRB(0, 0, 0, botPad),
+          ),
           SettingsItem(
             text:AppLocalizations.of(context)!.themeText,
             icon: Icons.brush,

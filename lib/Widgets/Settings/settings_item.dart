@@ -19,7 +19,10 @@ class SettingsItem extends StatelessWidget{
         // button with text,
         TextButton(
             onPressed: onTap,
-            child: Text(text)
+            child: Text(text),
+            style: TextButton.styleFrom(
+              primary: Theme.of(context).textTheme.headline1!.color,
+            )
         )
       ],
     );
