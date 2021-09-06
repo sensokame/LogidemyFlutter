@@ -95,10 +95,10 @@ class _FallacyCardActionsState extends State<FallacyCardActions> with SingleTick
           child: InkWell(
             onTap: _toggle,
             child: Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(4.0),
               child: Icon(
                 Icons.close,
-                color: Theme.of(context).primaryColor,
+                color: Theme.of(context).colorScheme.onSurface,
               ),
             ),
           ),
@@ -125,7 +125,10 @@ class _FallacyCardActionsState extends State<FallacyCardActions> with SingleTick
           duration: const Duration(milliseconds: 250),
           child: FloatingActionButton(
             onPressed: _toggle,
-            child: const Icon(Icons.add),
+            child: const Icon(
+                Icons.add
+            ),
+            backgroundColor: Theme.of(context).colorScheme.onSurface,
           ),
         ),
       ),

@@ -42,5 +42,13 @@
   "selectThemeText": "Select Theme",
   "@selectThemeText": {
     "description": "select Theme text, to be used in settings"
+  },
+  "readMoreText": "Read More",
+  "@readMoreText": {
+    "description": "read more text, to be used in fallacies"
+  },
+  "signsText": "Logical Fallacy Signs",
+  "@signsText": {
+    "description": "signs text, to be used in fallacies"
   }
 }

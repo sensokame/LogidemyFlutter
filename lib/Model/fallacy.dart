@@ -33,4 +33,10 @@ class Fallacy{
         signs: json['signs']
     );
   }
+  @override
+  String toString() {
+    return 'Fallacy: ' + name + "\n"+
+      description + "\n" +
+      'if you want to learn more, check out ' + readMore;
+  }
 }

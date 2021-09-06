@@ -10,7 +10,11 @@ class FallacyDescription extends StatelessWidget{
   Widget build(BuildContext context) {
     return Text(
         descriptionText,
-        textAlign: TextAlign.justify
+        textAlign: TextAlign.justify,
+      style:const TextStyle(
+        fontSize: 20,
+        height: 1.25
+      ),
     );
   }
 }

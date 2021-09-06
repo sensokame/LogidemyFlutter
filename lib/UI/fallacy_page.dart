@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:logidemy/API/fallacies_controller.dart';
+import 'package:logidemy/API/fallacy_actions_controller.dart';
 import 'package:logidemy/Model/fallacy.dart';
 import 'package:logidemy/Widgets/Fallacy/action_button.dart';
 import 'package:logidemy/Widgets/Fallacy/fallacy_card.dart';
@@ -42,18 +43,24 @@ class _FallacyPageState extends State<FallacyPage> {
       body: FallacyCard(
         fallacy: fallacy,
       ),
-      floatingActionButton: const FallacyCardActions(
+      floatingActionButton: FallacyCardActions(
         distance: 112.0,
         children: [
           ActionButton(
             // share
-            //onPressed: () => _showAction(context, 0),
-            icon: Icon(Icons.share),
+            onPressed: () => FallacyActionsController.shareFallacy(fallacy),
+            icon: Icon(
+              Icons.share,
+              color: Theme.of(context).colorScheme.surface,
+            ),
           ),
           ActionButton(
             // show signs page
-            //onPressed: () => _showAction(context, 1),
-            icon: Icon(Icons.menu_book_rounded),
+            onPressed: () => FallacyActionsController.showSigns(context, fallacy!.signs),
+            icon: Icon(
+                Icons.menu_book_rounded,
+                color: Theme.of(context).colorScheme.surface,
+            ),
           )
         ],
       ),

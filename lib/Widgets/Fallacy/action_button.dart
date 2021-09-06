@@ -17,7 +17,7 @@ class ActionButton extends StatelessWidget {
     return Material(
       shape: const CircleBorder(),
       clipBehavior: Clip.antiAlias,
-      color: theme.colorScheme.secondary,
+      color: theme.colorScheme.onSurface,
       elevation: 4.0,
       child: IconTheme.merge(
         data: const IconThemeData.fallback(),
